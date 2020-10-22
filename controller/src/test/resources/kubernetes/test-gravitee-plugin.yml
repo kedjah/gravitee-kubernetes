@@ -17,7 +17,8 @@
 apiVersion: "gravitee.io/v1alpha1"
 kind: GraviteePlugins
 metadata:
-  name: internal-gw-plugins
+  name: myapp-plugins
+  namespace: default
 spec:
   plugins:
     key-less-poc:
@@ -32,12 +33,11 @@ spec:
           useSystemProxy: false
           extractClaims: false
           propagateAuthHeader: true
-          #resolverParameter: "ae0368e97a7574a05995c0bf535fa395776f2e941715870cf5dfab3be6868364"
           resolverParameter:
             valueFrom:
               secretKeyRef:
-                name: mysecret
-                key: password
+                name: myapp
+                key: myapp-password
     oauth2:
       type: security
       identifier: oauth2

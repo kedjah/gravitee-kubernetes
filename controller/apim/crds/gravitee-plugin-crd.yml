@@ -52,6 +52,36 @@ spec:
                         type: object
                         description: Map containing the pluging configuration (map structure based on the kind of plugin)
                         x-kubernetes-preserve-unknown-fields: true
+                    requires: ["type", "identifier"]
+            status:
+              type: object
+              properties:
+                hashCodes:
+                  type: object
+                  description: hashCode for each plugin
+                  additionalProperties:
+                    type: string
+                integration:
+                  type: object
+                  properties:
+                    state:
+                      type: string
+                      description: The integration state of the resource
+                    message:
+                      type: string
+                      description: Additional data about the state
+      subresources:
+        # status enables the status subresource.
+        status: { }
+      additionalPrinterColumns:
+        - name: State
+          type: string
+          description: The integration state of the resource
+          jsonPath: .status.integration.state
+        - name: Message
+          type: string
+          description: Additional data about the state (may be nempty)
+          jsonPath: .status.integration.message
   # either Namespaced or Cluster
   scope: Namespaced
   names:
