@@ -45,7 +45,7 @@
     </issueManagement>
 
     <modules>
-        <module>controller</module>
+        <module>gravitee-gateway-controller</module>
     </modules>
 
     <properties>
@@ -239,12 +239,7 @@
                     <excludes>
                         <exclude>LICENSE.txt</exclude>
                         <exclude>**/README</exclude>
-                        <exclude>ae/**</exclude>
-                        <exclude>am/**</exclude>
-                        <exclude>apim/**</exclude>
                         <exclude>**/*.adoc</exclude>
-                        <exclude>**/*.yml</exclude>
-                        <exclude>**/*.yaml</exclude>
                         <exclude>**/*.factories</exclude>
                         <exclude>**/*.properties</exclude>
                     </excludes>
